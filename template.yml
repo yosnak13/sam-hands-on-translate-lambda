@@ -7,7 +7,7 @@ Resources:
     Properties:
       FunctionName: translate-function-2
       CodeUri: ./translate-function
-      Handler: translate-handler.lambda_handler
+      Handler: translate-function.lambda_handler
       Runtime: python3.7
       Timeout: 5
       MemorySize: 256
