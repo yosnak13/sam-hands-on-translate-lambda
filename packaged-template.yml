@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Hands-on for Beginners
+Resources:
+  TranslateLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: translate-function-2
+      CodeUri: s3://sam-app-hands-on-yosnak-1/2dbbcba3dffbccbe2852b67bde0ac80c
+      Handler: translate-handler.lambda_handler
+      Runtime: python3.7
+      Timeout: 5
+      MemorySize: 256
