@@ -6,10 +6,24 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: translate-function-2
-      CodeUri: s3://sam-app-hands-on-yosnak-1/8e276b3a6ed71c6b4693dd9f3516d62e
+      CodeUri: s3://sam-app-hands-on-yosnak-1/19162650045d10fcff8e28d87f6eb6cd
       Handler: translate-function.lambda_handler
       Runtime: python3.7
       Timeout: 5
       MemorySize: 256
       Policies:
       - TranslateFullAccess
+      Events:
+        GetApi:
+          Type: Api
+          Properties:
+            Path: /translate
+            Method: Get
+            RestApiId:
+              Ref: TranslateAPI
+  TranslateAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: translate-api-2
+      StageName: dev
+      EndpointConfiguration: REGIONAL
